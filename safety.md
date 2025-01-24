@@ -33,6 +33,23 @@ In addition to electrical sources, the protoyping station also presents burn ris
 
 The laser cutter presents the largest burn risk. Use only with permission from Prof. Nilles and while supervised by at least one professor or graduate student. Only approved materials may be used with the laser cutter.
 
+If any Lithium batteries begin to swell, place them into the bucket in the fume
+hood and notify Professor Nilles. If a lithium battery is damaged or punctured,
+dispose of it in the same way. If a lithium battery catches fire, exit the lab
+immediately and call 911; you do not want to breathe the smoke. We will also
+have an annual fire safety and evacuation protocol training.
+
+The nearest fire extinguisher is.... somewhere.
+
+# Chemical Hazards
+
+There are very few chemical hazards in the lab. If we are working with soft
+robotics, we may be curing silicone or similar materials. These may offgass some
+volatile organic compounds and should be placed inside the fume hood, with the
+fume hood turned on while curing.
+
+Do not eat anything you find in the lab.
+
 # Robot Hazards
 
 ## UR3e Universal Robots Arms
@@ -43,7 +60,21 @@ Most injuries due to robot arms are to the fingers or head.
 
 The maximum speed of the arm is 1 meter/second and the maximum payload is 3kg. These limits cannot be exceeded.
 
-See [Getting Started with UR3e Arms]() for more info.
+If the robot arm were to throw an object with maximum payload at maximum speed,
+it would have the same momentum as a baseball going 45 miles per hour.
+
+No using the robot arms without explicit permission and supervision from at
+least one professor or graduate student.
+
+See [Getting Started with UR3e Arms](arms.md) for more info.
+
+### Conveyor Belts
+
+There are also two adjustable-speed conveyor belts meant for use with the robot
+arms. Do not use these without supervision and be sure to secure all loose hair
+and clothing first. Do not modify the conveyor belts. Do not sit or stand on the
+conveyor belts. When adjusting the height of the conveyor belts, be very careful
+when loosening bolts as the top surface may suddenly fall.
 
 
 ## iRobot Creates
@@ -52,13 +83,15 @@ These robots are modelled after the Roomba product (also from iRobot) and are pr
 
 However, injury is still possible, mostly through tripping hazards. Be sure to store the Creates in their "cave" under the desks in the corner when you are done using them.
 
+See [Getting started with iRobot Creates](creates.md) for more info.
+
 ## CrazyFlies
 
 These tiny quadcopters are meant to only be flown inside, and in particular, inside the drone safety cage.
 
 Even though they are tiny, their propellers spin very fast and could cause injury to eyes or other fragile parts in a collision with a human.
 
-See [Getting Started with CrazyFlies]() for more info.
+See [Getting Started with CrazyFlies](flies.md) for more info.
 
 ## Bigger Drones
 
@@ -71,9 +104,19 @@ To fly any drone or UAV outside, you must have an FCC remote pilot's license, AN
 
 # Waste Disposal
 
-## Batteries
+Most materials in the lab can be disposed of in the trash cans outside the lab.
 
-# Fire Safety
+Anything with a Hazmat symbol should not go in the trash, especially batteries. If you're
+not sure, ask Professor Nilles.
+
+## Batteries and e-Waste
+
+All batteries should be disposed of in the bucket inside the fume hood.
+
+All other e-waste (wires, circuit boards, etc) should be placed in the disposal
+box next to the fume hood.
+
+We will periodically request hazardous waste pickups from the university.
 
 # First Aid
 
