@@ -21,6 +21,31 @@ However, they should not be placed on a table with hardware.
 Food in lab is discouraged but ok if consumed at a table away from hardware, and
 is cleaned up properly.
 
+# Waste Disposal
+
+Most materials in the lab can be disposed of in the trash cans outside the lab.
+
+Anything with a Hazmat symbol should not go in the trash, especially batteries. If you're
+not sure, ask Professor Nilles.
+
+## Batteries and e-Waste
+
+All batteries should be disposed of in the bucket inside the fume hood.
+
+All other e-waste (wires, circuit boards, etc) should be placed in the disposal
+box next to the fume hood.
+
+We will periodically request hazardous waste pickups from the university.
+
+# First Aid
+
+In the event of large amounts of blood, loss of consciousness, or other
+severe injury, call emergency services via 911, then contact Professor Nilles.
+
+For less severe injuries (messy paper cut, etc.) there is a first aid kit
+mounted to the wall in the lab. If you use the kit, send Prof. Nilles a note so
+I can keep track of supplies.
+
 # Electrical Hazards
 
 The electrical cables hanging from the ceiling are live and can potentially
@@ -102,27 +127,3 @@ DJI drones are not approved for indoor use, and the Elios 3 can only be piloted 
 To fly any drone or UAV outside, you must have an FCC remote pilot's license, AND permission from Prof. Nilles.
 
 
-# Waste Disposal
-
-Most materials in the lab can be disposed of in the trash cans outside the lab.
-
-Anything with a Hazmat symbol should not go in the trash, especially batteries. If you're
-not sure, ask Professor Nilles.
-
-## Batteries and e-Waste
-
-All batteries should be disposed of in the bucket inside the fume hood.
-
-All other e-waste (wires, circuit boards, etc) should be placed in the disposal
-box next to the fume hood.
-
-We will periodically request hazardous waste pickups from the university.
-
-# First Aid
-
-In the event of large amounts of blood, loss of consciousness, or other
-severe injury, call emergency services via 911, then contact Professor Nilles.
-
-For less severe injuries (messy paper cut, etc.) there is a first aid kit
-mounted to the wall in the lab. If you use the kit, send Prof. Nilles a note so
-I can keep track of supplies.
