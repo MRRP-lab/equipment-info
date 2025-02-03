@@ -1,10 +1,9 @@
-Safety Guidelines
------------------
+# Safety Guidelines
 
 Everyone in the lab is responsible for following all health and safety
 regulations of [WWU Environmental Health and Safety](https://ehs.wwu.edu/).
 
-# PPE
+## PPE
 
 Backpacks and jackets should be hung up on the provided hooks, to avoid tripping
 hazards.
@@ -13,7 +12,7 @@ Closed toed shoes are required. Long hair is recommended to be tied back, and is
 required to be tied back if you are working with any hardware (robots or
 prototyping station).
 
-# Food and Drink
+## Food and Drink
 
 Drinks in closed containers (i.e. waterbottles, cups with lids and straws) are allowed.
 However, they should not be placed on a table with hardware.
@@ -21,14 +20,14 @@ However, they should not be placed on a table with hardware.
 Food in lab is discouraged but ok if consumed at a table away from hardware, and
 is cleaned up properly.
 
-# Waste Disposal
+## Waste Disposal
 
 Most materials in the lab can be disposed of in the trash cans outside the lab.
 
 Anything with a Hazmat symbol should not go in the trash, especially batteries. If you're
 not sure, ask Professor Nilles.
 
-## Batteries and e-Waste
+### Batteries and e-Waste
 
 All batteries should be disposed of in the bucket inside the fume hood.
 
@@ -37,7 +36,7 @@ box next to the fume hood.
 
 We will periodically request hazardous waste pickups from the university.
 
-# First Aid
+## First Aid
 
 In the event of large amounts of blood, loss of consciousness, or other
 severe injury, call emergency services via 911, then contact Professor Nilles.
@@ -46,13 +45,13 @@ For less severe injuries (messy paper cut, etc.) there is a first aid kit
 mounted to the wall in the lab. If you use the kit, send Prof. Nilles a note so
 I can keep track of supplies.
 
-# Electrical Hazards
+## Electrical Hazards
 
 The electrical cables hanging from the ceiling are live and can potentially
 deliver a larger shock than a traditional wall outlet. Do not use these cables
 unless specifically instructed.
 
-# Burn Hazards
+## Burn Hazards
 
 In addition to electrical sources, the protoyping station also presents burn risks. Both the soldering station and the 3D printer become very hot and should not be touched with bare hands if they have been recently used.
 
@@ -66,7 +65,7 @@ have an annual fire safety and evacuation protocol training.
 
 The nearest fire extinguisher is.... somewhere.
 
-# Chemical Hazards
+## Chemical Hazards
 
 There are very few chemical hazards in the lab. If we are working with soft
 robotics, we may be curing silicone or similar materials. These may offgass some
@@ -75,9 +74,9 @@ fume hood turned on while curing.
 
 Do not eat anything you find in the lab.
 
-# Robot Hazards
+## Robot Hazards
 
-## UR3e Universal Robots Arms
+### UR3e Universal Robots Arms
 
 While this robot arm has safety features, they are not foolproof. Always tie back long hair when working with the robot arms, and keep an awareness of where the robot is.
 
@@ -102,7 +101,7 @@ conveyor belts. When adjusting the height of the conveyor belts, be very careful
 when loosening bolts as the top surface may suddenly fall.
 
 
-## iRobot Creates
+### iRobot Creates
 
 These robots are modelled after the Roomba product (also from iRobot) and are probably the safest robots we have.
 
@@ -110,7 +109,7 @@ However, injury is still possible, mostly through tripping hazards. Be sure to s
 
 See [Getting started with iRobot Creates](creates.md) for more info.
 
-## CrazyFlies
+### CrazyFlies
 
 These tiny quadcopters are meant to only be flown inside, and in particular, inside the drone safety cage.
 
@@ -118,7 +117,7 @@ Even though they are tiny, their propellers spin very fast and could cause injur
 
 See [Getting Started with CrazyFlies](flies.md) for more info.
 
-## Bigger Drones
+### Bigger Drones
 
 The larger drones are both more expensive and easier to break than the CrazyFlie drones.
 
