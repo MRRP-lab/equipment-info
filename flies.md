@@ -1,6 +1,6 @@
 Getting Started with CrazyFlies
 -------------------------------
-We have tons of working CrazyFlie drones
+We have tons of working CrazyFlie drones. Use them responsibly.
 # Building a CrazyFlie
 - We still have some CrazyFlie kits that haven't been assembled yet. See assembly instructions [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#assembling)
 - Some pieces are fragile. Be very careful.
