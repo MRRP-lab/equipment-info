@@ -26,14 +26,16 @@ Some things to watch out for here during setup.
 - See more [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client).
 
 # Controlling Many CrazyFlies
-- This part is in-progress. There's no manual control of many at once without writing a program to do so. You need some special permissions to do so, because there's more risk involved with flying many at once.
+- IN-PROGRESS. There's no manual control of many at once without writing a program to do so. You need some special permissions to do so, because there's more risk involved with flying many at once.
+- There seems to be an issue where multiple crazyflie drones in the same area have the exact same radio controller address, leading to pairing issues. BUT. Sometimes it works and you can control multiple drones at the same time. Not recommended for manual control for any reason.
 
 # Programming a CrazyFlie
 - Not finished.
 
 # When Finished
 - Please unplug your CrazyFlies when you are done using them!
-- 
 # Cautions
 - The drones are really finicky sometimes. Sometimes not flying after hitting the ground, requiring you to reset them by toggling a tiny switch on the top of the board near the front right arm.
+- Pay attention to the LEDs!!! They each have different meanings and will tell you that something's wrong. See their meanings [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#leds)
+- We've had 2 cases now of a minor crash resulting in a broken leg.
 More resources: https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#controlling-the-crazyflie
