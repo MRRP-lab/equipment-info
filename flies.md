@@ -20,16 +20,15 @@ Some things to watch out for here during setup:
 - Permissions to scan the USB ports.
 - Some students have tried using the client on a virtual machine, and they needed access to the vboxusers group. The command to do this is `sudo usermod -a -G vboxusers $USER`.
 - After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. The input mapping that seems most normal is called Generic_OS_X (actually might be wrong, has a weird default pitch?), and can be found at Input Device>Device>Input Map.
-- You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), and 
-- Certain input mappings seem to have have a default control for yaw, pitch, or roll. So if you don't notice it and immediately give it thrust, it will veer off in some direction.
-- This extra information just doesn't work sometimes. You can still fly the drone but without that extra information.
-- To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced."
+- You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), among other things.
+- Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad. It seems that **PS3_Mode_1** is one of the most reasonable mappings. You'll only need to bind the assisted flight button to use that.
+- To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced." This just allows you to set certain flight control parameters.
 
 - See more [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client).
 
 # Controlling Many CrazyFlies
 
-- IN-PROGRESS. There's no manual control of many at once without writing a program to do so. You need some special permissions to do so, because there's more risk involved with flying many at once.
+- IN-PROGRESS. There's no manual control of many at once without writing a program to do so. You'll need some special permissions to do so, because there's more risk involved with flying many at once. 
 - There seems to be an issue where multiple crazyflie drones in the same area have the exact same radio controller address, leading to pairing issues. BUT. Sometimes it works and you can control multiple drones at the same time. Not recommended for manual control for any reason.
 
 # Programming a CrazyFlie
@@ -43,6 +42,13 @@ Some things to watch out for here during setup:
 # Cautions
 
 - The drones are really finicky sometimes. Sometimes not flying after hitting the ground, requiring you to reset them by toggling a tiny switch on the top of the board near the front right arm.
-- Pay attention to the LEDs!!! They each have different meanings and will tell you that something's wrong. See their meanings [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#leds)
-- We've had 2 cases now of a minor crash resulting in a broken leg.
+- Pay attention to the LEDs!!! They each have different meanings and will tell you that something's wrong. See their meanings [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#leds) But just for quick reference: 
+    - Solid red LED (M1 by default): Low battery
+    - 5 red LED blinks followed by brief pause repeating: Failed self-test.
+    - Red blinking twice each second: Good to go!
+    - Led 4 blinking red/green: Radio connected.
+    - For anything else check the link above.
+- We've had 2 cases now of a minor crash resulting in a broken leg. Be careful.
+- In my (Parker) opinion, the crazyflie client sucks. It crashes quite frequently and most of the default controller input layouts have certain flight parameters set which shouldn't be set... like a mapping which automatically has pitch at -30 degrees or one which has thrust at 40% for no reason, forcing you to need to go into the settings to set those controls. These input modifications don't persist and there's no way to save them (to my knowledge).
+- It seems like the PS3 Mode 1 is one of the most reasonable control schemes.
 More resources: https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#controlling-the-crazyflie
