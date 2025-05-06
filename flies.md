@@ -19,12 +19,12 @@ We have tons of working CrazyFlie drones. Use them responsibly.
 Some things to watch out for here during setup:
 - Permissions to scan the USB ports.
 - Some students have tried using the client on a virtual machine, and they needed access to the vboxusers group. The command to do this is `sudo usermod -a -G vboxusers $USER`.
-- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. The input mapping that seems most normal is called Generic_OS_X (actually might be wrong, has a weird default pitch?), and can be found at Input Device>Device>Input Map.
+- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1** is one of the most reasonable mappings. You'll only need to bind the assisted flight button if you need to use that (You'd also need a flow deck on your drone.)
 - You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), among other things.
-- Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad. It seems that **PS3_Mode_1** is one of the most reasonable mappings. You'll only need to bind the assisted flight button to use that.
+- Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad.
 - To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced." This just allows you to set certain flight control parameters.
 
-- See more [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client).
+- See more [here](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client) and [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client)
 
 # Controlling Many CrazyFlies
 
@@ -33,7 +33,7 @@ Some things to watch out for here during setup:
 
 # Programming a CrazyFlie
 
-- Not finished.
+- It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
 
 # When Finished
 
