@@ -49,6 +49,6 @@ Some things to watch out for here during setup:
     - Led 4 blinking red/green: Radio connected.
     - For anything else check the link above.
 - We've had 2 cases now of a minor crash resulting in a broken leg. Be careful.
-- In my (Parker) opinion, the crazyflie client sucks. It crashes quite frequently and most of the default controller input layouts have certain flight parameters set which shouldn't be set... like a mapping which automatically has pitch at -30 degrees or one which has thrust at 40% for no reason, forcing you to need to go into the settings to set those controls. These input modifications don't persist and there's no way to save them (to my knowledge).
+- In my (Parker) opinion, the crazyflie client sucks. It crashes quite frequently and most of the default controller input layouts have certain flight parameters set which shouldn't be set... like a mapping which automatically has pitch at -30 degrees or one which has thrust at 40% for no reason, forcing you to need to go into the settings to set those controls.
 - It seems like the PS3 Mode 1 is one of the most reasonable control schemes.
 More resources: https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#controlling-the-crazyflie
