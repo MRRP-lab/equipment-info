@@ -35,7 +35,8 @@ Some things to watch out for here during setup:
 
 - It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
 ### Setting up the build system
-- [Reference this page](https://github.com/bitcraze/crazyflie-firmware/blob/master/docs/building-and-flashing/build.md). The page on the official "Getting Started With Development - Programming the CrazyFlie" has the wrong command. Your git pull command should include the --recursive option so it can also pull the dependencies for compiling to bare metal targets.
+- [Reference this page](https://github.com/bitcraze/crazyflie-firmware/blob/master/docs/building-and-flashing/build.md). The page "Getting Started With Development - Programming the CrazyFlie" has the wrong command. Your git pull command should include the --recursive option so it can also pull the dependencies for compiling to bare metal targets.
+- DO NOT FLASH MULTIPLE DRONES AT THE SAME TIME, the results are unpredictable. Keep in mind that the crazyradio PA often can reach across into the next room over.
 
 # When Finished
 
