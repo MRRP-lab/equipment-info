@@ -1,6 +1,7 @@
 Getting Started with CrazyFlies
 -------------------------------
-We have tons of working CrazyFlie drones. Use them responsibly.
+We have tons of working CrazyFlie 2.x drones. Use them responsibly.
+Check out the hardware information [right here](https://www.bitcraze.io/documentation/system/platform/cf2-architecture/)
 # Building a CrazyFlie
 - We still have some CrazyFlie kits that haven't been assembled yet. See assembly instructions [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#assembling)
 - Some pieces are fragile. Be very careful.
@@ -16,13 +17,18 @@ We have tons of working CrazyFlie drones. Use them responsibly.
   2. Some kind of controller (We have 3 white Xbox controllers.)
   3. A way to communicate with the drone wirelessly. Our equipment comes with Crazyradio 2.0 adapters you can plug into a USB port.
 
-Some things to watch out for here during setup:
+Some things to watch out for here during setup and flight:
 - Permissions to scan the USB ports.
 - Some students have tried using the client on a virtual machine, and they needed access to the vboxusers group. The command to do this is `sudo usermod -a -G vboxusers $USER`.
-- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1** is one of the most reasonable mappings. You'll only need to bind the assisted flight button if you need to use that (You'd also need a flow deck on your drone.)
+- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1** is one of the most reasonable mappings.
 - You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), among other things.
 - Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad.
 - To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced." This just allows you to set certain flight control parameters.
+- You may have noticed under the Basic Flight Control tab there is a section for "Assist Mode." Keep in mind certain options require certain expansion boards to be installed onto the drone to work properly. There is:
+    - Altitude Hold: Active when the flow deck is not installed. Not sure how to get it to work. When I try it the drone just flips over.
+    - Position Hold: Requires a [Loco Postioning System](https://www.bitcraze.io/documentation/system/positioning/loco-positioning-system/), which requires the [loco positioning deck](https://www.bitcraze.io/products/loco-positioning-deck/) on a drone plus [Loco nodes](https://www.bitcraze.io/products/loco-positioning-node/) set up and mounted around the room.
+    - Height Hold: Requires the [Z-ranger deck](https://www.bitcraze.io/products/z-ranger-deck-v2/)
+    - Hover: Like Height hold. Requires a [Flow deck](https://www.bitcraze.io/products/flow-deck-v2/)
 
 - See more [here](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client) and [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client)
 
@@ -36,7 +42,7 @@ Some things to watch out for here during setup:
 - It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
 ### Setting up the build system
 - [Reference this page](https://github.com/bitcraze/crazyflie-firmware/blob/master/docs/building-and-flashing/build.md). The page "Getting Started With Development - Programming the CrazyFlie" has the wrong command. Your git pull command should include the --recursive option so it can also pull the dependencies for compiling to bare metal targets.
-- DO NOT FLASH MULTIPLE DRONES AT THE SAME TIME, the results are unpredictable. Keep in mind that the crazyradio PA often can reach across into the next room over.
+- DO NOT FLASH MULTIPLE DRONES AT THE SAME TIME IF NOT EXPLICITLY SPECIFYING THE CRAZYFLIE URI, THE RESULTS ARE UNPREDICTABLE. Instead, when you are ready to flash, you can connect to specific drones using 
 
 # When Finished
 
