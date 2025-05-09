@@ -5,6 +5,7 @@ Check out the hardware information [right here](https://www.bitcraze.io/document
 # Building a CrazyFlie
 - We still have some CrazyFlie kits that haven't been assembled yet. See assembly instructions [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#assembling)
 - Some pieces are fragile. Be very careful.
+- Attaching an expansion deck? Look [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-expansion-decks/).
 
 # Flying Manually
 
