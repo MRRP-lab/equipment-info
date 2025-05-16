@@ -6,7 +6,7 @@ The arms can be controlled either by [URScript](https://www.universal-robots.com
 
 URScript is somewhat limited, especially with respect to controlling open-source simulators, so the rest of this guide will focus on ROS2 development. However, there are many ways to interface with the robots and there is no one "correct" way. URScript may be more user-friendly for development of simple motions, especially if you are having trouble getting ROS2 set up.
 
-If your t is also worth looking into MoveIt, open-source motion planning software for robot arms.
+If your trajectories are complex, is also worth looking into [MoveIt](https://moveit.picknik.ai/main/doc/tutorials/quickstart_in_rviz/quickstart_in_rviz_tutorial.html), open-source motion planning software for robot arms.
 
 ## Installation
 
