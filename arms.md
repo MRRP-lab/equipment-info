@@ -8,11 +8,17 @@ URScript is somewhat limited, especially with respect to controlling open-source
 
 If your trajectories are complex, is also worth looking into [MoveIt](https://moveit.picknik.ai/main/doc/tutorials/quickstart_in_rviz/quickstart_in_rviz_tutorial.html), open-source motion planning software for robot arms.
 
-## Installation
+# Install using `ros2_shell`
+
+If you are using our pre-built apptainer, launch the shell and navigate to a new ROS2 workspace.
+
+# Installing from Source
+
+The following steps are only needed if you're installing from scratch on your own machine, where you have sudo permissions. This guide assumes you have already installed ROS2 Jazzy.
 
 ### ur_robot_driver
 
-Necessary for control of both the physical and simulated robot. Install with:
+The driver is necessary for control of both the physical and simulated robot. Install with:
 
 ```bash
 sudo apt install ros-jazzy-ur
@@ -21,8 +27,6 @@ sudo apt install ros-jazzy-ur
 Or see [instructions](https://docs.universal-robots.com/Universal_Robots_ROS2_Documentation/doc/ur_robot_driver/ur_robot_driver/doc/installation/installation.html#build-from-source) for building from source.
 
 ### Simulator
-
-It is a good idea to design your programs in simulation first, before moving to the industrial robot arm. 
 
 Follow the steps below in a new ROS2 workspace.
 
@@ -36,13 +40,19 @@ git clone -b ros2 https://github.com/UniversalRobots/Universal_Robots_ROS2_GZ_Si
 rosdep update && rosdep install --ignore-src --from-paths src -y
 ```
 
-Configure and build the package:
+# Building the package:
 
 ```bash
 colcon build --symlink-install
 ```
 
-## Usage
+Don't forget to source your environment for this package:
+
+```bash
+source install/setup.sh
+```
+
+# Usage
 
 To launch the simulator and RViz:
 
