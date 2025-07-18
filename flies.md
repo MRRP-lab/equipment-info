@@ -7,6 +7,13 @@ Check out the hardware information [right here](https://www.bitcraze.io/document
 - Some pieces are fragile. Be very careful.
 - Attaching an expansion deck? Look [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-expansion-decks/).
 
+# Installing & Running the Client
+To run the Crazyflie client, you only need to install the `cfclient` package from the Pypi repository. To use the Crazyradio dongle you must either install the proper drivers (Windows) or your user must have permission to read from devices (Linux).
+
+#### Linux
+- It's easiest to create a venv, then using that, simply `pip3 install cfclient`.
+- Ensure your user has udev permissions or you won't be able to use the Crazyradio dongle. Details [here](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/usb_permissions/).
+
 # Flying Manually
 
 ## Mobile
