@@ -50,7 +50,7 @@ Some things to watch out for here during setup and flight:
 - It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
 ### Setting up the build system
 - [Reference this page](https://github.com/bitcraze/crazyflie-firmware/blob/master/docs/building-and-flashing/build.md). The page "Getting Started With Development - Programming the CrazyFlie" has the wrong command. Your git pull command should include the --recursive option so it can also pull the dependencies for compiling to bare metal targets.
-- DO NOT FLASH MULTIPLE DRONES AT THE SAME TIME IF NOT EXPLICITLY SPECIFYING THE CRAZYFLIE URI, THE RESULTS ARE UNPREDICTABLE. Instead, when you are ready to flash, you can connect to specific drones using `cfloader flash build/cf2.bin stm32-fw -w [CRAZYFLIE_URI]`. It will connect to the drone and automatically put it in bootloader mode, then flash it. Make sure you change [CRAZYFLIE_URI] to the actual URI.
+- DO NOT FLASH MULTIPLE DRONES AT THE SAME TIME IF NOT EXPLICITLY SPECIFYING THE CRAZYFLIE URI, THE RESULTS ARE UNPREDICTABLE. Instead, when you are ready to flash, you can connect to specific drones using `cfloader flash build/cf2.bin stm32-fw -w [CRAZYFLIE_URI]`. It will connect to the drone and automatically put it in bootloader mode, then flash it. Make sure you change [CRAZYFLIE_URI] to the actual URI, like radio://0/20/2M/E7E7E7E7E7 for instance.
 
 # When Finished
 
@@ -66,6 +66,5 @@ Some things to watch out for here during setup and flight:
     - Led 4 blinking red/green: Radio connected.
     - For anything else check the link above.
 - We've had 2 cases now of a minor crash resulting in a broken leg. Be careful.
-- In my (Parker) opinion, the crazyflie client sucks. It crashes quite frequently and most of the default controller input layouts have certain flight parameters set which shouldn't be set... like a mapping which automatically has pitch at -30 degrees or one which has thrust at 40% for no reason, forcing you to need to go into the settings to set those controls.
 - It seems like the PS3 Mode 1 is one of the most reasonable control schemes.
 More resources: https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#controlling-the-crazyflie
