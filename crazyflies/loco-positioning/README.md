@@ -20,3 +20,12 @@
 6. Select desired .yaml file
 7. Select *Write to anchors*
 8. Done! The nodes now know where they are in relation to one another.
+
+## Note on the node towers:
+- When the tower is collapsed, the top nodes are at z=1.10m
+- Extending the middle rod adds 0.95m
+- Extending the inner rod adds 0.93m
+- For simplicity's sake, configurations should be use 1 of 3 tower height configurations for easy reproducability:
+  1. **Position #1:** Tower collaped, z=1.10
+  2. **Position #2:** Only inner rod extended, z=2.05
+  3. **Position #3:** Inner and middle rods extended, z=2.98
