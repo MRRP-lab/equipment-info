@@ -27,5 +27,5 @@
 - Extending the inner rod adds 0.93m
 - For simplicity's sake, configurations should be use 1 of 3 tower height configurations for easy reproducability:
   1. **Position #1:** Tower collaped, z=1.10
-  2. **Position #2:** Only inner rod extended, z=2.05
+  2. **Position #2:** Only inner rod extended, z=2.03
   3. **Position #3:** Inner and middle rods extended, z=2.98
