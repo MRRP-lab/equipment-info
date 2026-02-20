@@ -1,0 +1,34 @@
+**SD Card Initialization**
+dts init_sd_card --hostname DUCKIEBOT_NAME --type duckiebot --configuration DB21J --wifi duckietown:quackquack,robo_wifi:Mrrpwwu109 --country US
+
+**Software Update**
+dts duckiebot update DUCKIEBOT_NAME
+
+**Keyboard Controller**
+dts duckiebot keyboard_control DUCKIEBOT_NAME
+
+**Image Viewer**
+dts duckiebot image_viewer DUCKIEBOT_NAME
+
+**LED Controller**
+dts duckiebot led_control DUCKIEBOT_NAME
+
+**Intrinsic Camera Calibration**
+dts duckiebot calibrate_intrinsics DUCKIEBOT_NAME
+
+**Extrinsic Camera Calibration**
+dts duckiebot calibrate_extrinsics DUCKIEBOT_NAME
+
+** Reflashing the HUT**
+--> ssh into the duckie first <--
+sudo apt-get update
+sudo apt-get install bison autoconf flex gcc-avr binutils-avr gdb-avr gdb-avr avr-libc avrdude build-essential
+(Make sure date is correct. May need to "sudo date --set=STRING")
+git clone https://github.com/duckietown/fw-device-hut.git
+cd fw-device-hut
+sudo cp _avrdudeconfig_jetson_nano/avrdude.conf /etc/avrdude.conf
+make fuses
+make clean
+sudo make
+cd .. && sudo rm -rf fw-device-hut
+sudo reboot
