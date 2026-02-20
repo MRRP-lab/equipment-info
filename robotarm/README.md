@@ -11,14 +11,14 @@ pixi install
 
 ## Launch the driver
 
+> Make sure the robot arm is turned on and in remote control mode.
 ``` bash
 pixi run driver
 ```
 
-> Make sure the robot arm is turned on and in remote control mode.
-
 ## Test the joint trajectory controller
 
+> You may need to set the arm into its "up" position before running this.
 ``` bash
 pixi run test
 ```
