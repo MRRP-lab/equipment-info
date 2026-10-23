@@ -96,3 +96,7 @@ then select the option that looks like "UR3*".
 Make sure the robot arm is turned on and in remote control mode (you switch
 modes on the teach pendant; you should be trained in-person on this process
 and related safety considerations, reach out to a professor or TA if not).
+
+### End Effectors
+
+[See this page for more information on end effectors for the robot arms](./end_effectors.md).
