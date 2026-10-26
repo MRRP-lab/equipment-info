@@ -28,7 +28,7 @@ To run the Crazyflie client, you only need to install the `cfclient` package fro
 Some things to watch out for here during setup and flight:
 - Permissions to scan the USB ports.
 - Some students have tried using the client on a virtual machine, and they needed access to the vboxusers group. The command to do this is `sudo usermod -a -G vboxusers $USER`.
-- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1** is one of the most reasonable mappings.
+- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1 or Xbox Mode 2** is one of the most reasonable mappings.
 - You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), among other things.
 - Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad.
 - To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced." This just allows you to set certain flight control parameters.
