@@ -70,6 +70,36 @@ For detailed examples check out: [Bitcraze:crazyflie-demos](https://github.com/b
 - There seems to be an issue where multiple crazyflie drones in the same area have the exact same radio controller address, leading to pairing issues. BUT. Sometimes it works and you can control multiple drones at the same time. Not recommended for manual control for any reason.
 - To get started check out the swarming tutorial [Step-by-Step: Swarm Interface](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_swarm_interface/)
 
+# Loco Positioning System
+First ensure that the crazyflies are up to date and the anchors are properly set up. The ones in the lab should be good to go. 
+
+### Setting up in the lab
+
+If you are setting up the nodes in the lab there is a pre-defined setup that follows the Bitcraze specifications. 
+- Look on the ground, in the back corner of the room closest to the windows. There should be 4 pieces of red tape. Each piece is labeled with a 0, 2, 5, or 7.
+- In the corner closest to the 3D printers, there are 4 telescoping stands, each with two numbered loco-nodes attached.
+- Match the numbers on the tape with the bottom nodes from each stand. **Take note of the labeled x direction, it should be facing the door.**
+- Extend each stand so that the top node is 2 meters off the ground.
+- Plug in each node, the cables are in a drawer under the printers.
+
+### Testing the system
+
+- Place a well charged crazyflie, with a loco deck, in the center of the nodes **facing in the x direction.** The loco positioning system will not work with scripting if the drone is not placed in the x direction.
+- Turn on the drone and open cfclient.
+  - Make sure that the lights on the loco deck and the nodes start to flash in a sequential pattern.
+- In cfclient go to View->Tabs->Loco Positioning Tab to make the tab visible. You should now be able to see the nodes as they are in the room.
+- Ensure that all anchors are green <img width="1300" height="867" alt="image" src="https://github.com/user-attachments/assets/c9bc7792-28f6-436b-99b7-c5f16d9a47e9" />
+- Double check that the nodes are set up to our configuration, which is a 2m x 3m x 2m prism.
+  - Go to configure positions and click get from anchors.
+  - If the values do not match the 2m x 3m x 2m setup change them and press write to anchors.
+- Press the Anchor Identification button, pick up the crazyflie without covering the flow deck, and move the drone next to each node. If the system is working correctly you should see each node get bigger once the drone is nearby. Verify that the node you move next to is also the correct number associated on screen.
+- The system should now be working!
+
+If you run into any issues with the setup please refer to the instructions below
+
+### Guidelines for setting up the nodes:
+- IN-PROGRESS see [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-loco-positioning-system/) for the Bitcraze documentation on node configurations.
+
 # Programming CrazyFlie Firmware
 
 - It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
