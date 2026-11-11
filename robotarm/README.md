@@ -24,20 +24,11 @@ The example commands below will launch ROS nodes; to kill the node, press
 `CTRL+C` in the terminal where the node was launched.
 
 
-## Starting Driver
-
-Whether using simulation or the real robot, you'll need to launch the official
-Universal Robots ROS2 driver, which sets the robot arm up
-to listen for ROS2 messages:
-
-``` bash
-pixi run driver
-```
-
 ## Simulation
 
 It is always best to test out programs in simulation before trying on the actual
-hardware. This command will launch a visualizer (RViz) containing a model of
+hardware. This command will launch the Universal Robots ROS2 driver, as well as
+a visualizer (RViz) containing a model of
 our robot arm, which can be controlled with the same exact ROS messages that the
 hardware uses.
 
@@ -45,10 +36,21 @@ hardware uses.
 pixi run mock
 ```
 
-To run a full physics-based simulator (Gazebo) with the robot arm, run:
+To run a full physics-based simulator (Gazebo), run the following after `pixi
+run mock` starts (in a new terminal):
 
 ```bash
 pixi run sim
+```
+
+## Starting Driver
+
+When using the real robot, you'll need to launch the official
+Universal Robots ROS2 driver, which sets the robot arm up
+to listen for ROS2 messages:
+
+``` bash
+pixi run driver
 ```
 
 ## Test the joint trajectory controller
