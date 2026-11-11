@@ -28,7 +28,7 @@ To run the Crazyflie client, you only need to install the `cfclient` package fro
 Some things to watch out for here during setup and flight:
 - Permissions to scan the USB ports.
 - Some students have tried using the client on a virtual machine, and they needed access to the vboxusers group. The command to do this is `sudo usermod -a -G vboxusers $USER`.
-- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1 or Xbox Mode 2** is one of the most reasonable mappings.
+- After the client is set up, you might need to set the proper input mapping. Some of them are messed up and the drone will just immediately begin to fly up and away. Watch out for that. It seems that **PS3_Mode_1 or Xbox Mode 2** is one of the most reasonable mappings. You can also define your own mappings if needed.
 - You'll notice that the client has some readings for things like link quality, battery, state estimation (thrust, x, y, and z,), among other things.
 - Certain input mappings seem to have have a default (nonzero) control for yaw, pitch, roll, and even thrust. So if you don't notice it and immediately give it thrust, it will veer off in some direction, or it might just veer off immediately as you connect which is really bad.
 - To enable advanced flight: While not connected to a drone, see the menu on the left and change "Flight mode" to "Advanced." This just allows you to set certain flight control parameters.
@@ -40,12 +40,37 @@ Some things to watch out for here during setup and flight:
 
 - See more [here](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client) and [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-x/#config-client)
 
+# Scripting with CrazyFlies
+The primary way to control crazyflies, outside of manual control, is with Python scripts. 
+
+First ensure that ` cfclient ` is installed. The crazyflies need `cflib` to access the crazyflie library, this should be installed with `cfclient`. 
+- To ensure it is properly installed run `pip install cflib` in your environment
+
+The CrazyFlie library has two primary control features:
+- Synchronous control
+- Asynchronous control
+
+### Synchronous Control
+To get started I recommend using synchronous control. Synchronous control provides a wrapper for the asynchronous control commands, making them much easier to use, but blocking the execution thread while any movement or logging occurs. This will provide the ability to write simple scripts for sequential control and logging data. **To create a swarm using synchronous control use Swarm() or set up your own multi-threading (This will block the execution thread until all drones in the swarm have completed their command)**
+
+If it is your first time writing scripts with the crazyflies, I recommend starting with the following tutorial: [Bitcraze Step-by-Step: Connecting, logging, and parameters](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_connect_log_param/)
+
+Once you have completed the first tutorial I recommend also completing this tutorial: [Step-by-Step: Motion Commander](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_motion_commander/)
+
+### Asynchronous Control
+Asynchronous command scripts are best when working with swarms, real-time control, or any dynamic sensor work. These functions return immediately, so looping and thread control is on the user. The Bitcraze documentation provides an in depth breakdown of all of their functions available see: [commander](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/api/cflib/crazyflie/commander/). 
+
+Check out the docs for more information: [The Crazyflie Python API explanation](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/python_api/#structure-of-the-library)
+
+For detailed examples check out: [Bitcraze:crazyflie-demos](https://github.com/bitcraze/crazyflie-demos). For the source code: [Bitcraze GitHub](https://github.com/bitcraze/)
+
 # Controlling Many CrazyFlies
 
 - IN-PROGRESS. There's no manual control of many at once without writing a program to do so. You'll need some special permissions to do so, because there's more risk involved with flying many at once. 
 - There seems to be an issue where multiple crazyflie drones in the same area have the exact same radio controller address, leading to pairing issues. BUT. Sometimes it works and you can control multiple drones at the same time. Not recommended for manual control for any reason.
+- To get started check out the swarming tutorial [Step-by-Step: Swarm Interface](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_swarm_interface/)
 
-# Programming a CrazyFlie
+# Programming CrazyFlie Firmware
 
 - It boils down to downloading the firmware release for the crazyflie and modifying it to your needs, then flashing it back to a drone using a crazyradio dongle. Can NOT be done over USB. Must be over radio.
 ### Setting up the build system
