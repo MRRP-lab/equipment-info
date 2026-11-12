@@ -2,6 +2,7 @@
 import rclpy
 from rclpy.logging import get_logger
 from moveit.planning import MoveItPy, PlanRequestParameters
+import time
 
 def main(args=None):
     # Initialize ROS 2 context
@@ -10,11 +11,12 @@ def main(args=None):
     logger.info("Initializing MoveItPy Node...")
 
     # set controller
-    active_controllers = ["joint_trajectory_controller"] # change to scaled_joint_trajectory_controller for hardware
+    active_controllers = ["scaled_joint_trajectory_controller"]
 
     # Instantiate MoveItPy
     # This automatically processes the robot_description and parameters from the launch context
     ur3e = MoveItPy(node_name="ur3e_moveit_py_node")
+    time.sleep(2.0) # give time for action client to connect to Gazebo
 
     # access the primary arm planning group
     arm = ur3e.get_planning_component("ur_manipulator")
