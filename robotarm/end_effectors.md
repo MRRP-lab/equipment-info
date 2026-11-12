@@ -21,6 +21,9 @@ There is a pneumatic gripper. You must be trained in-person by Dr. Nilles or the
 
 The pneumatic gripper is wired to the UR control box, and can be controlled via the ROS2 link to the robot arm.
 
+TODO: write up standalone MWE with pneumatic gripper. For now, use examples of SRDF and
+launch files [here](https://github.com/MRRP-lab/colman/tree/main/src/colman_moveit_config).
+
 ## Two-finger parallel plate gripper
 
 We have a two-finger parallel plate gripper based on [this design](https://github.com/Evroc/Robotic-gripper). The gripper is powered and controlled by a USB cable that must be plugged into the host computer, but can then be controlled through ROS with rosserial as detailed on that repository README.
