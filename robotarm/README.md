@@ -10,8 +10,8 @@ described at that link. If you're in the robotics class, you should use ROS.
 
 ## Setup
 
-In this folder, we have a `pixi.toml` file to make install and usage easier.
-Feel free to copy this file into your own project as a starting point.
+We use pixi to make install and usage easier. We've defined some pixi tasks to
+launch nodes, you can inspect these tasks in `pixi.toml`.
 
 To install pixi, and set up the environment:
 
@@ -26,17 +26,34 @@ The example commands below will launch ROS nodes; to kill the node, press
 
 ## Simulation
 
-It is always best to test out programs in simulation before trying on the actual
-hardware. This command will launch a physics-based simulator (Gazebo), as well as
-a visualizer (RViz) containing a model of
-our robot arm, which can be controlled with the same exact ROS messages that the
-hardware uses.
+
+It is essential to test out programs in simulation before trying on the actual
+hardware.
+
+### Visualize with no physics
+
+This command will open RViz with a model of the ur3e robot arm.
+
+```bash
+pixi run viz
+```
+
+### Simulate with physics
+
+This command will launch a physics-based simulator (Gazebo), as well as
+a visualizer (RViz) containing a model of our robot arm. Use this only if you
+need physics for your project (estimating forces, interacting with objects
+dynamically, etc). Tested on Debian lab machines (don't forget to run `source
+set_pixi_env` in each terminal if you're using Pixi on lab machines).
 
 ``` bash
 pixi run sim
 ```
 
 ## Control
+
+Once you have started RViz and/or Gazebo, you'll launch another package to
+actually control the arm (launch in new terminal).
 
 The following pixi task will build your package, source your environment, and
 spin up the ROS2 node defined in `src/ur_moveit_py/ur_moveit_py/move_arm.py`.
@@ -47,7 +64,7 @@ will move back to home.
 pixi run control-sim
 ```
 
-You can leave the Gazebo simulator node running while you iterate on the python
+You can leave RViz/Gazebo running while you iterate on the python
 script, re-running the script with the above command. This is because we use
 `colcon build symlink-install` to build our package.
 
@@ -77,6 +94,18 @@ You should do this programmatically in either your python script or your launch
 file, but to do this in the GUI, the simplest way to do this is to go to the scene objects tab, add a box of size (2.0, 2.0, 0.01)
 then offset its position by (0, 0, -0.01), finally press publish to add it to the scene.
 
+## Defining Scenes and End-Effectors
+
+To programmatically add collision objects to your scene for planning, see [the
+official MoveIt API documentation
+here](https://moveit.picknik.ai/main/doc/examples/motion_planning_python_api/motion_planning_python_api_tutorial.html#using-a-planning-scene).
+
+To add an end effector, you'll probably want to use local URDF and SRDF files to
+define the shape and control groups. Files have been provided in
+`src/ur_moveit_py/urdf/` and `src/ur_moveit_py/srdf/` to get you started, but
+you'll need to modify your launch file and possibly a few other things to get
+your system to load the local custom URDF/SRDF instead of loading the robot
+description from the messages published by the UR driver.
 
 ## Running on Robot Hardware
 

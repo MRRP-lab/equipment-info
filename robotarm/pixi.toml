@@ -9,12 +9,14 @@ version = "0.1.0"
 # clean out old install files
 clean = "rm -rf install/ log/ build/"
 # build package: necessary if you change launch files or other configs
-# don't forget to "source install/setup.sh" after building
+# don't forget to "source install/setup.sh" after building (control-sim and control-hw do this for you)
 build = "colcon build --symlink-install"
-# launch driver for robot hardware
-driver = "ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.56.101 headless_mode:=true"
-# launch gazebo for simulation (uses gazebo drivers for UR)
+# launch RVIz and driver for mock hardware (launch this before control-sim for viz without physics)
+mock = "ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=0.0.0.0 use_mock_hardware:=true launch_rviz:=true"
+# launch gazebo for physics simulation (uses gazebo drivers for UR - don't need to run driver or mock)
 sim = "ros2 launch ur_simulation_gz ur_sim_moveit.launch.py ur_type:=ur3e"
+# launch driver for robot hardware (launch this before control-hw)
+driver = "ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur3e robot_ip:=192.168.56.101 headless_mode:=true"
 # launch minimal working example; runs src/ur_moveit_py/ur_moveit_py/move_arm.py
 control-sim = { cmd = "bash -c 'source install/setup.bash && ros2 launch ur_moveit_py move_arm.launch.py'", depends-on = ["build"] }
 control-hw = { cmd = "bash -c 'source install/setup.bash && ros2 launch ur_moveit_py move_arm.launch.py use_sim_time:=false'", depends-on = ["build"] }
