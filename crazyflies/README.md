@@ -98,7 +98,24 @@ If you are setting up the nodes in the lab there is a pre-defined setup that fol
 If you run into any issues with the setup please refer to the instructions below
 
 ### Guidelines for setting up the nodes:
-- IN-PROGRESS see [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-loco-positioning-system/) for the Bitcraze documentation on node configurations.
+Here are some basic guidelines for setting up the Loco Positioning nodes outside of the lab setup:
+- Ensure that there is sufficient access to power outlets for the nodes.
+- Make sure that you have each node updated and properly configured.
+- From the documentation below.
+  - Ensure there is ~15cm of clearance from each node to a wall or object.
+  - Might sure that the flight space is clear and provides line of sight to the crazy flie
+  - **Each node should be a minimum of 2m apart** (The smallest configuration achievable is a $2m^3$ box, but a larger volume generally produces better results)
+- Note which direction is defined as x and y, and where each node is in this plane.
+  - They should be organized as such:
+    |(x,y,z)|Node Number(Bottom,Top)|
+    |--|--|
+    |(0,0,0), (0,0,z)|(0,4)|
+    |(x,0,0),(x,0,z)|(7,3)|
+    |(x,y,0),(x,y,z)|(2,6)|
+    |(0,y,0),(0,y,z)|(5,1)|
+
+I recommend following the Bitcraze instructions [here](https://www.bitcraze.io/documentation/tutorials/getting-started-with-loco-positioning-system/) to complete the remaining setup.
+
 
 # Programming CrazyFlie Firmware
 
