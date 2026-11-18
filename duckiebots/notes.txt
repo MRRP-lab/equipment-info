@@ -1,0 +1,61 @@
+Claude instructions: 
+Here is the full set, in the order that actually got you working. All of it was done with the SD card mounted on your laptop.
+
+**Setup (laptop)**
+```bash
+R=/media/lab-user/1186901c-3f3a-46e1-8811-c2a9a122d773
+ls $R/home
+grep duckie $R/etc/passwd
+```
+Confirms the `duckie` account exists (UID 1000). The path comes from `lsblk -f`, where the root partition was `sda1`.
+
+**NTP fix**
+```bash
+sudo nano $R/etc/systemd/timesyncd.conf
+```
+Uncomment and set these under `[Time]`, then save with `Ctrl+O`, `Enter`, `Ctrl+X`:
+```
+NTP=ntp.cs.wwu.edu
+FallbackNTP=pool.ntp.org time.google.com
+```
+Verify:
+```bash
+grep -E "^(NTP|FallbackNTP)" $R/etc/systemd/timesyncd.conf
+```
+
+**SSH key fix**
+```bash
+ls ~/.ssh/id_ed25519.pub || ssh-keygen -t ed25519
+sudo mkdir -p $R/home/duckie/.ssh
+cat ~/.ssh/id_ed25519.pub | sudo tee -a $R/home/duckie/.ssh/authorized_keys
+sudo chmod 700 $R/home/duckie/.ssh
+sudo chmod 600 $R/home/duckie/.ssh/authorized_keys
+sudo chown -R 1000:1000 $R/home/duckie/.ssh
+sudo cat $R/home/duckie/.ssh/authorized_keys
+```
+The last line checks that your `ssh-ed25519` key is in the file.
+
+**Unmount before pulling the card**
+```bash
+sync
+sudo umount $R
+```
+
+**After reinserting the card and booting**
+```bash
+ssh-keygen -f '/home/lab-user/.ssh/known_hosts' -R '172.30.109.153'
+ssh duckie@abdiel
+```
+The first command clears the stale host key warning. After that, use the hostname instead of the IP.
+
+**Verify on the robot**
+```bash
+date
+timedatectl status
+docker ps
+```
+You want `System clock synchronized: yes` and all containers `Up (healthy)`.
+
+**Optional cleanup:** your `authorized_keys` has a duplicate ed25519 line from running the `tee -a` command twice. Remove it with `nano ~/.ssh/authorized_keys` on the robot, and leave the `DT2018key` line alone.
+
+**If you reflash later,** redo the NTP edit and the SSH key steps, or set the key at flash time.
