@@ -26,16 +26,16 @@ The example commands below will launch ROS nodes; to kill the node, press
 
 ## Simulation
 
-
 It is essential to test out programs in simulation before trying on the actual
 hardware.
 
 ### Visualize with no physics
 
-This command will open RViz with a model of the ur3e robot arm.
+This command will open RViz with a model of the ur3e robot arm, as well as
+running the underlying UR ROS2 driver.
 
 ```bash
-pixi run viz
+pixi run mock
 ```
 
 ### Simulate with physics
@@ -83,7 +83,8 @@ things can be done in python. The working example here is in python.
 However, sometimes it's easier to use the GUI to prototype poses and plans
 rather than spinning up the entire Gazebo simulator.
 
-To launch MoveIt using our Pixi package:
+To launch MoveIt using our Pixi package (you must run `pixi run mock`
+first if not connected to hardware robot):
 
 ``` bash
 pixi run moveit

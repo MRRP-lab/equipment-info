@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+import time
 import rclpy
 from rclpy.logging import get_logger
 from moveit.planning import MoveItPy, PlanRequestParameters
-import time
+from geometry_msgs.msg import PoseStamped
+
 
 def main(args=None):
     # Initialize ROS 2 context
@@ -35,20 +37,41 @@ def main(args=None):
     else:
         logger.error("Planning to 'home' failed!")
 
-    # Plan and move to 'up' (another standard named target in the UR SRDF)
-    logger.info("Setting goal state to 'up'...")
+    # Plan and move to a Pose Goal defined on the end effector
+    logger.info("Setting goal state to pose...")
     arm.set_start_state_to_current_state()
-    arm.set_goal_state(configuration_name="up")
 
-    logger.info("Planning trajectory to 'up'...")
-    plan_to_up = arm.plan()
+    pose_goal = PoseStamped()
+    pose_goal.header.frame_id = "base_link"
+    # Set a position and quaternion describing pose of tool in base frame
+    # You can get this orientation in the MoveIt GUI with the following steps:
+    # (expand field by clicking arrow on left of field name)
+    # > Expand "MotionPlanning" on the top left sidebar in MoveIt
+    # > Expand "Scene Robot" to see current robot state, or "Planned Path" to see goal state
+    # > Expand "Links", and find "tool0"
+    # > Expand "tool0"
+    # Will see fields for position (x,y,z in meters) and orientation (x, y, z, w defining a quaternion)
+    # You can also plan to a "robot state" defining joint angles; you can get
+    # these from the real robot on the tablet while moving the robot in freedrive mode
+    # Be careful of using the pose estimates on the tablet: need to convert units
+    pose_goal.pose.orientation.x = -0.09
+    pose_goal.pose.orientation.y = 0.99
+    pose_goal.pose.orientation.z = 0.07
+    pose_goal.pose.orientation.w = 0.02
+    pose_goal.pose.position.x = -0.08
+    pose_goal.pose.position.y = 0.45
+    pose_goal.pose.position.z = 0.25
+    arm.set_goal_state(pose_stamped_msg=pose_goal, pose_link="tool0")
 
-    if plan_to_up:
-        logger.info("Executing movement to 'up'...")
-        ur3e.execute(plan_to_up.trajectory, controllers=active_controllers)
+    logger.info("Planning trajectory to pose...")
+    plan_to_pose = arm.plan()
+
+    if plan_to_pose:
+        logger.info("Executing movement to pose goal...")
+        ur3e.execute(plan_to_pose.trajectory, controllers=active_controllers)
         logger.info("Movement complete!")
     else:
-        logger.error("Planning to 'up' failed!")
+        logger.error("Planning to pose failed!")
 
     # 6. Shutdown cleanly
     rclpy.shutdown()
